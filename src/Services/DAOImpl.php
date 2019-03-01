@@ -25,7 +25,7 @@ class DAO implements DAOInterface{
     }
 
     public function findPropertyByPriceRange($minPrice, $maxPrice){
-        return $this->propertyRepository->findBetween($min, $max);
+        return $this->propertyRepository->findBetween($minPrice, $maxPrice);
     }
 
     public function findPropertyByDescription($description){
