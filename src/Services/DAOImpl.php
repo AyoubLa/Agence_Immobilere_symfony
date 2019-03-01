@@ -1,9 +1,11 @@
 <?php
 
+namespace App\Services;
+
 use App\Repository\PropertyRepository;
 use App\Entity\Property;
 
-class DAO implements DAOInterface{
+class DAOImpl implements DAOInterface{
 
     private $propertyRepository;
 
