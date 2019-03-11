@@ -19,9 +19,16 @@ class PropertyRepository extends ServiceEntityRepository
         parent::__construct($registry, Property::class);
     }
 
+<<<<<<< HEAD
     public function findBetween($min, $max){
         $qb = $this->createQueryBuilder('p')
             ->andWhere('p.price => :price')
+=======
+    public function findBetween($min, $max)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.price >= :price')
+>>>>>>> 259961637fa9deeedd07e4a997433a793eeb785f
             ->setParameter('price', $min)
             ->andWhere('p.price <= :price')
             ->setParameter('price', $max)
@@ -30,9 +37,26 @@ class PropertyRepository extends ServiceEntityRepository
         return $qb->execute();
     }
 
+<<<<<<< HEAD
     public function findLatest(){
         $qb = $this->createQueryBuilder('p')
             ->setMaxResults(1)
+=======
+    public function findByMinArea($areaMin)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.area >= :area')
+            ->setParameter('area', $areaMin)
+            ->orderBy('p.area', 'ASC')
+            ->getQuery();
+        return $qb->execute();
+    }
+
+    public function findLatest()
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->setMaxResults(10)
+>>>>>>> 259961637fa9deeedd07e4a997433a793eeb785f
             ->orderBy('p.id', 'ASC')
             ->getQuery();
         return $qb->execute();

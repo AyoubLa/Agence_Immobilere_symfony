@@ -26,10 +26,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-<<<<<<< HEAD
-    App\Service\DAOInterface:
-=======
-
-    App\Services\:
-        resource: '../src/Services'
->>>>>>> master
+    App\Controller\Front\GalleryController:
+        arguments:
+            $repository: '@App\Services\DAOImpl'
